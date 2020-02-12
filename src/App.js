@@ -10,6 +10,7 @@ class App extends React.Component {
 
   constructor() {
     super();
+    this.state = {};
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -27,13 +28,38 @@ class App extends React.Component {
     );
   }
 
+  setLocationIndex(currentLocationIndex) {
+    localStorage.setItem("lastLocationIndex", currentLocationIndex);
+  }
+
+  fetchCurrentLocation(currentLocation) {
+    this.setState({
+      currentLocation: currentLocation
+    });
+  }
+
+  fetchCurrentCountry(currentCountry) {
+    this.setState({
+      currentCountry: currentCountry
+    });
+  }
+
+  fetchCurrentLocationISO_3166_1_alpha_2(currentLocationISO_3166_1_alpha_2) {
+    this.setState({
+      currentLocationISO_3166_1_alpha_2: currentLocationISO_3166_1_alpha_2
+    });
+  }
+
   render() {
     return (
-      <AtwFlags
-        locationsData={locationsData}
-        handleClick={this.handleClick}
-        content={locationsData.locations}
-      />
+      <div>
+        <div>Currently selected location is: {this.state.currentLocation}</div>
+        <AtwFlags
+          locationsData={locationsData}
+          handleClick={this.handleClick}
+          content={locationsData.locations}
+        />
+      </div>
     );
   }
 }

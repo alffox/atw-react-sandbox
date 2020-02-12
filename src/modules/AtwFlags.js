@@ -25,6 +25,7 @@ class AtwFlags extends React.Component {
   }
 
   render() {
+    console.log("this.props: " + this.props)
     return (
       <div className="row">
         <div className="col-md-12 text-center">
@@ -33,9 +34,34 @@ class AtwFlags extends React.Component {
               <input type="text" placeholder="Search" onChange={this.filterList} />
             </form>
 
-            {this.state.currentFlags.map(function (location, index) {
-              return <button type="button" key={index}>{location.title}</button>
+            {this.state.currentFlags.map((location, index) => {
+              return (
+                <button onClick={this.props.handleClick.bind(
+                  this,
+                  location.index,
+                  location.title,
+                  location.country,
+                  location.ISO_3166_1_alpha_2,
+                )}
+                  key={index}
+                  type="button"
+                >
+                  {location.title}, {location.country}
+                </button>
+              );
             })
+
+
+              // onClick={this.props.handleClick.bind(
+              //   this,
+              //   location.index,
+              //   location.title,
+              //   location.country,
+              //   location.ISO_3166_1_alpha_2,
+              // )}
+              // key={index}
+              // type="button"
+              // className="btn btn-info m-1 flag-top"
 
               //  {this.props.locationsData.locations.map((location, index) => {
               //   return (
