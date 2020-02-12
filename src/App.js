@@ -4,7 +4,7 @@ import './App.css';
 
 import locationsData from "./locations.json";
 
-import MyFilteringComponent from "./MyFilteringComponent.js";
+import MyFilteringComponent from "./modules/MyFilteringComponent.js";
 
 class App extends React.Component {
   render() {
