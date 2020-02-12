@@ -5,22 +5,22 @@ import React from "react";
 class AtwFlags extends React.Component {
 
   state = {
-    initialItems: [],
-    items: []
+    initialFlags: [],
+    currentFlags: []
   }
 
   filterList = (event) => {
-    let items = this.state.initialItems;
-    items = items.filter((item) => {
-      return item.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
+    let currentFlags = this.state.initialFlags;
+    currentFlags = currentFlags.filter((location) => {
+      return location.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
     });
-    this.setState({ items: items });
+    this.setState({ currentFlags: currentFlags });
   }
 
   componentDidMount() {
     this.setState({
-      initialItems: this.props.content,
-      items: this.props.content
+      initialFlags: this.props.content,
+      currentFlags: this.props.content
     })
   }
 
@@ -33,8 +33,8 @@ class AtwFlags extends React.Component {
               <input type="text" placeholder="Search" onChange={this.filterList} />
             </form>
 
-            {this.state.items.map(function (item, key) {
-              return <button type="button" key={key}>{item.title}</button>
+            {this.state.currentFlags.map(function (location, index) {
+              return <button type="button" key={index}>{location.title}</button>
             })
 
               //  {this.props.locationsData.locations.map((location, index) => {
