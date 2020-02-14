@@ -1,4 +1,4 @@
-## Around the World Searchbar - PoC
+## Around the World sandbox
 
 This project is a testing app, aiming to implement, test and create preliminary features that will be later integrated into the Liferay 7 widget "Liferay Around the World": https://github.com/alffox/liferay-around-the-world-widget
 
